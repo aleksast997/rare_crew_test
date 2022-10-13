@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon aria-hidden="true" fontIcon="home">home</mat-icon>
+  </button>
+  <span style="margin-left: 2%;">My App</span>
+  <span class="example-spacer"></span>
+  <span style="margin-right: 5%;">Aleksa Stanojkovic for Rare Crew test</span>
+</mat-toolbar>
+<mat-grid-list cols="2" rowHeight="450px">
+  <mat-grid-tile>
+    <table mat-table class="mat-elevation-z8">
+      <tr>
+        <th mat-header-cell>Name</th>
+        <th mat-header-cell>Work hours</th>
+      </tr>
+      <tr mat-row *ngFor="let employee of employeeMap | keyvalue:keepOriginalOrder">
+        <td *ngIf="employee.value > 100" style="text-align: center;" >{{employee.key}}</td>
+        <td *ngIf="employee.value > 100" style="text-align: center;">{{employee.value}}</td>
+        <td *ngIf="employee.value < 100" style="text-align: center; background-color: red;" >{{employee.key}}</td>
+        <td *ngIf="employee.value < 100" style="text-align: center; background-color: red;">{{employee.value}}</td>
+      </tr>
+    </table>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div id="divChart">
+      <canvas id="canvas">{{chart}}</canvas>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+
